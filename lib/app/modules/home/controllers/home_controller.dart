@@ -1,23 +1,29 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pioubible/app/modules/bible/views/bible_view.dart';
+import 'package:pioubible/app/modules/searchbible/views/searchbible_view.dart';
+import 'package:pioubible/app/modules/settings/views/settings_view.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final load = false.obs;
+  RxInt currentPage = 0.obs;
+  PageController pageController = PageController();
+  ScrollController homePageScrollController = ScrollController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  //
+  List<Widget> pages = [
+    const BibleView(),
+    const SearchbibleView(),
+    const SettingsView(),
+  ];
+
+  //
+  void goToTab(int page) {
+    currentPage.value = page;
+    pageController.jumpToPage(page);
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void animateToTab(int page) {
+    currentPage.value = page;
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
