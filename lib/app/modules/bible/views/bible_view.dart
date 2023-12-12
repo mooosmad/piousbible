@@ -38,7 +38,7 @@ class BibleView extends GetView<BibleController> {
                   begin: Alignment.topRight,
                   end: Alignment.center,
                   colors: [
-                    ConstantColors.redColor.withOpacity(0.8),
+                    ConstantColors.redColor.withOpacity(0.75),
                     ConstantColors.redColor
                   ],
                 ),
