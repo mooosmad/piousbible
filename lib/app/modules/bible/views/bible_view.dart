@@ -29,7 +29,7 @@ class BibleView extends GetView<BibleController> {
             const SizedBox(height: 15),
             Container(
               padding: const EdgeInsets.all(12),
-              height: 160,
+              // height: 160,
               width: Get.width * 1.5,
               decoration: BoxDecoration(
                 // color: ConstantColors.redColor,
@@ -54,8 +54,13 @@ class BibleView extends GetView<BibleController> {
                           color: Colors.white, fontWeight: FontWeight.bold)),
                   SizedBox(height: 15),
                   Text(
-                      "Mais, comme il est écrit, ce sont des choses que l'oeil n'a point vues, que l'oreille n'a point entendues, et qui ne sont point montées au coeur de l'homme, des",
-                      style: TextStyle(color: Colors.white, fontSize: 15)),
+                    "Mais, comme il est écrit, ce sont des choses que l'oeil n'a point vues, que l'oreille n'a point entendues, et qui ne sont point montées au coeur de l'homme, des",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                    maxLines: 4,
+                  ),
                 ],
               ),
             ),
