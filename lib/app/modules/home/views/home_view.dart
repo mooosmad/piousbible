@@ -33,34 +33,31 @@ class HomeView extends GetView<HomeController> {
                   // height: 80,
                   elevation: 0,
                   notchMargin: 10,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _bottomAppBarItem(
-                          page: 0,
-                          context,
-                          label: "Bible",
-                          activeAsset: 'assets/bnav/home.png',
-                          inactiveAsset: 'assets/bnav/home.png',
-                        ),
-                        _bottomAppBarItem(
-                          page: 1,
-                          context,
-                          label: "Recherche",
-                          activeAsset: 'assets/bnav/recherche.png',
-                          inactiveAsset: 'assets/bnav/recherche.png',
-                        ),
-                        _bottomAppBarItem(
-                          page: 2,
-                          context,
-                          label: "Reglages",
-                          activeAsset: 'assets/bnav/settings.png',
-                          inactiveAsset: 'assets/bnav/settings.png',
-                        ),
-                      ],
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _bottomAppBarItem(
+                        page: 0,
+                        context,
+                        label: "Bible",
+                        activeAsset: 'assets/bnav/home.png',
+                        inactiveAsset: 'assets/bnav/home.png',
+                      ),
+                      _bottomAppBarItem(
+                        page: 1,
+                        context,
+                        label: "Recherche",
+                        activeAsset: 'assets/bnav/recherche.png',
+                        inactiveAsset: 'assets/bnav/recherche.png',
+                      ),
+                      _bottomAppBarItem(
+                        page: 2,
+                        context,
+                        label: "Reglages",
+                        activeAsset: 'assets/bnav/settings.png',
+                        inactiveAsset: 'assets/bnav/settings.png',
+                      ),
+                    ],
                   ),
                 ),
               ));
