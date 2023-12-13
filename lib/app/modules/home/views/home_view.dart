@@ -29,8 +29,6 @@ class HomeView extends GetView<HomeController> {
                 elevation: 20,
                 color: Colors.transparent,
                 child: BottomAppBar(
-                  // color: Colors.red,
-                  // height: 80,
                   elevation: 0,
                   notchMargin: 10,
                   child: Row(
