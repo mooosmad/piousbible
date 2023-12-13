@@ -13,35 +13,32 @@ class BibleView extends GetView<BibleController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: ConstantColors.lightColor,
+        padding: const EdgeInsets.all(8),
         height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset("assets/logo_red.png"),
+                CircleAvatar(radius: 25, child: Container()),
+              ],
+            ),
+            const SizedBox(height: 10),
+            _buildVersetDuJour(),
+            SizedBox(
+              height: Get.height * 0.52,
+              child: ListView(
                 children: [
-                  Image.asset("assets/logo_red.png"),
-                  CircleAvatar(radius: 25, child: Container()),
+                  _buildAncienTestament(),
+                  const SizedBox(height: 5),
+                  _buildNouveauTestament(),
                 ],
               ),
-              const SizedBox(height: 10),
-              _buildVersetDuJour(),
-              SizedBox(
-                height: Get.height * 0.5,
-                child: ListView(
-                  children: [
-                    _buildAncienTestament(),
-                    const SizedBox(height: 5),
-                    _buildNouveauTestament(),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
