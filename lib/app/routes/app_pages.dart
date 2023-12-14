@@ -33,7 +33,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BIBLE,
-      page: () => const BibleView(),
+      page: () => BibleView(),
       binding: BibleBinding(),
     ),
     GetPage(
