@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +9,7 @@ import 'package:pioubible/app/utils/constant/constant_colors.dart';
 import '../controllers/bible_controller.dart';
 
 class BibleView extends GetView<BibleController> {
-  const BibleView({Key? key}) : super(key: key);
+  BibleView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +30,11 @@ class BibleView extends GetView<BibleController> {
             ),
             const SizedBox(height: 10),
             _buildVersetDuJour(),
-            SizedBox(
-              height: Get.height * 0.52,
-              child: ListView(
-                children: [
-                  _buildAncienTestament(),
-                  const SizedBox(height: 5),
-                  _buildNouveauTestament(),
-                ],
-              ),
+            Column(
+              children: [
+                _buildAncienTestament(),
+                _buildNouveauTestament(),
+              ],
             ),
           ],
         ),
@@ -152,7 +150,6 @@ class BibleView extends GetView<BibleController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 10),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -217,24 +214,13 @@ class BibleView extends GetView<BibleController> {
     );
   }
 
-  Widget _buildTestamentContainer() {
-    return Container(
-      height: Get.height * 0.20,
-      width: Get.width * 0.44,
-      decoration: BoxDecoration(
-        color: ConstantColors.redColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-    );
-  }
+  List<String> bibleimageancien = [
+    "assets/ancien2.png",
+    "assets/ancien1.png",
+  ];
+
+  List<String> bibleimagenouveau = [
+    "assets/nouveau1.png",
+    "assets/nouveau2.png",
+  ];
 }
-
-List<String> bibleimageancien = [
-  "assets/ancien2.png",
-  "assets/ancien1.png",
-];
-
-List<String> bibleimagenouveau = [
-  "assets/nouveau1.png",
-  "assets/nouveau2.png",
-];

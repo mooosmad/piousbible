@@ -12,7 +12,7 @@ class HomeController extends GetxController {
 
   //
   List<Widget> pages = [
-    const BibleView(),
+    BibleView(),
     const SearchbibleView(),
     const SettingsView(),
   ];
