@@ -3,7 +3,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pioubible/app/components/testament_container.dart';
 import 'package:pioubible/app/data/model/bible.dart';
+import 'package:pioubible/app/modules/bible/views/alltestament_view.dart';
 import 'package:pioubible/app/utils/constant/constant_colors.dart';
 
 import '../controllers/bible_controller.dart';
@@ -21,24 +23,28 @@ class BibleView extends GetView<BibleController> {
           shrinkWrap: true,
           children: [
             const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset("assets/logo_red.png"),
-                CircleAvatar(radius: 25, child: Container()),
-              ],
-            ),
+            _buildHeader(),
             const SizedBox(height: 10),
             _buildVersetDuJour(),
             Column(
               children: [
-                _buildAncienTestament(),
-                _buildNouveauTestament(),
+                _buildTestament("Ancien", bibleimageancien),
+                _buildTestament("Nouveau", bibleimagenouveau),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset("assets/logo_red.png"),
+        CircleAvatar(radius: 25, child: Container()),
+      ],
     );
   }
 
@@ -77,85 +83,28 @@ class BibleView extends GetView<BibleController> {
     );
   }
 
-  Widget _buildAncienTestament() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Ancien Testament",
-                style: TextStyle(fontWeight: FontWeight.bold)),
-            Text("voir tout >"),
-          ],
-        ),
-        const SizedBox(height: 10),
-        SizedBox(
-          height: Get.height * 0.25,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              final bibleAncien = bibleList
-                  .where((bible) => bible.testament == "Ancien")
-                  .toList()[index];
-              if (kDebugMode) {
-                print(bibleAncien);
-              }
-              return Stack(
-                children: [
-                  Container(
-                    height: Get.height * 0.20,
-                    width: Get.width * 0.44,
-                    margin: const EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                      color: ConstantColors.redColor,
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(bibleimageancien[index]),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 50,
-                    left: 10,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: ConstantColors.redColor.withOpacity(0.4),
-                      ),
-                      child: Text(
-                        bibleAncien.book,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-      ],
-    );
-  }
+  Widget _buildTestament(String testamentType, List<String> imageList) {
+    final testamentList =
+        bibleList.where((bible) => bible.testament == testamentType).toList();
 
-  Widget _buildNouveauTestament() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Row(
+        const SizedBox(height: 10),
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Nouveau Testament",
-                style: TextStyle(fontWeight: FontWeight.bold)),
-            Text("voir tout >"),
+            Text("$testamentType Testament",
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+            InkWell(
+                child: const Text("voir tout >"),
+                onTap: () {
+                  Get.to(() => AlltestamentView(
+                        testamentType: testamentType,
+                        imageList: imageList,
+                        testamentList: testamentList,
+                      ));
+                }),
           ],
         ),
         const SizedBox(height: 10),
@@ -165,48 +114,12 @@ class BibleView extends GetView<BibleController> {
             scrollDirection: Axis.horizontal,
             itemCount: 2,
             itemBuilder: (context, index) {
-              final bibleAncien = bibleList
-                  .where((bible) => bible.testament == "Nouveau")
-                  .toList()[index];
+              final bibleItem = testamentList[index];
               if (kDebugMode) {
-                print(bibleAncien);
+                print(bibleItem);
               }
-              return Stack(
-                children: [
-                  Container(
-                    height: Get.height * 0.20,
-                    width: Get.width * 0.44,
-                    margin: const EdgeInsets.only(right: 10),
-                    decoration: BoxDecoration(
-                      color: ConstantColors.redColor,
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(bibleimagenouveau[index]),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 50,
-                    left: 10,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: ConstantColors.redColor.withOpacity(0.4),
-                      ),
-                      child: Text(
-                        bibleAncien.book,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              );
+              return TestamentContainer(
+                  imageUrl: "assets/ancien1.png", text: bibleItem.book);
             },
           ),
         ),
