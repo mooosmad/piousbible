@@ -24,7 +24,7 @@ class ChapterListPage extends StatelessWidget {
                 Get.to(() => DetailsversebychapterView());
               },
               child: ListTile(
-                title: Text(testamentList[index].chapter),
+                title: Text(testamentList[index].text),
               ));
         },
       ),
