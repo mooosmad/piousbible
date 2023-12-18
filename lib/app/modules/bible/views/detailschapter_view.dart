@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pioubible/app/components/testament_container.dart';
 import 'package:pioubible/app/data/model/bible.dart';
 import 'package:pioubible/app/modules/bible/views/detailsversebychapter_view.dart';
 
@@ -21,7 +20,7 @@ class ChapterListPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
               onTap: () {
-                Get.to(() => DetailsversebychapterView());
+                Get.to(() => const DetailsversebychapterView());
               },
               child: ListTile(
                 title: Text(testamentList[index].text),
