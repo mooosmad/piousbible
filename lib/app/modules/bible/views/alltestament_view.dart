@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pioubible/app/components/testament_container.dart';
 import 'package:pioubible/app/data/model/bible.dart';
+import 'package:pioubible/app/modules/bible/views/detailschapter_view.dart';
 
 class AlltestamentView extends StatelessWidget {
   final String testamentType;
@@ -28,8 +29,16 @@ class AlltestamentView extends StatelessWidget {
         ),
         itemCount: testamentList.length,
         itemBuilder: (context, index) {
-          return TestamentContainer(
-              imageUrl: 'assets/ancien1.png', text: testamentList[index].book);
+          return InkWell(
+            onTap: () {
+              Get.to(
+                () => ChapterListPage(testamentList: testamentList),
+              );
+            },
+            child: TestamentContainer(
+                imageUrl: 'assets/ancien1.png',
+                text: testamentList[index].book),
+          );
         },
       ),
     );

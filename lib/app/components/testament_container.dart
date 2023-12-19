@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pioubible/app/data/model/bible.dart';
 import 'package:pioubible/app/utils/constant/constant_colors.dart';
 
 class TestamentContainer extends StatelessWidget {
