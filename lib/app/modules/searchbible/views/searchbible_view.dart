@@ -10,7 +10,7 @@ class SearchbibleView extends GetView<SearchbibleController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SearchbibleView'),
+        title: const Text('Recherche biblique'),
         centerTitle: true,
       ),
       body: const Center(
