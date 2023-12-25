@@ -8,7 +8,7 @@ class DetailsversebychapterView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DetailsversebychapterView'),
+        title: const Text('Verset du chapitre'),
         centerTitle: true,
       ),
       body: const Center(
