@@ -14,7 +14,14 @@ class DetailsversebychapterView extends GetView {
       body: const Center(
         child: Text(
           'Details du verset is working',
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            decoration: TextDecoration.underline,
+            decorationThickness: 1.5,
+            decorationColor: Colors.white,
+          ),
         ),
       ),
     );
