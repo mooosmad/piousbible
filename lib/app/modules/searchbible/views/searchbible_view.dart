@@ -15,7 +15,7 @@ class SearchbibleView extends GetView<SearchbibleController> {
       ),
       body: const Center(
         child: Text(
-          'Center is working here',
+          'Aucune recherche n\'est en cours',
           style: TextStyle(fontSize: 20),
         ),
       ),

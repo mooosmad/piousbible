@@ -12,16 +12,25 @@ class DetailsversebychapterView extends GetView {
         centerTitle: true,
       ),
       body: const Center(
-        child: Text(
-          'Details du verset is working',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            decoration: TextDecoration.underline,
-            decorationThickness: 1.5,
-            decorationColor: Colors.white,
-          ),
+        child: Column(
+          children: [
+            Text(
+              'Details du verset is working',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+                decorationThickness: 1.5,
+                decorationColor: Colors.white,
+              ),
+            ),
+            SizedBox(height: 50),
+            Text('Details du mrde thats working',
+                style: TextStyle(
+                  fontSize: 20,
+                ))
+          ],
         ),
       ),
     );
