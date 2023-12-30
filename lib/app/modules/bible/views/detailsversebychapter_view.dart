@@ -8,13 +8,29 @@ class DetailsversebychapterView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DetailsversebychapterView'),
+        title: const Text('Verset du chapitre'),
         centerTitle: true,
       ),
       body: const Center(
-        child: Text(
-          'DetailsversebychapterView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          children: [
+            Text(
+              'Details du verset is working',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+                decorationThickness: 1.5,
+                decorationColor: Colors.white,
+              ),
+            ),
+            SizedBox(height: 50),
+            Text('Details du mrde thats working',
+                style: TextStyle(
+                  fontSize: 20,
+                ))
+          ],
         ),
       ),
     );
