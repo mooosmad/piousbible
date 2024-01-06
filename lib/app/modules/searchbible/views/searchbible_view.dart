@@ -17,12 +17,12 @@ class SearchbibleView extends GetView<SearchbibleController> {
         child: Column(
           children: [
             Text(
-              'Aucune recherche n\'est en cours',
+              'Aucune recherche n\'est en cours mais vous pouvez la faire ici',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 50),
             Text(
-              'Aucune recherche n\'est en cours',
+              'Aucune recherche  ',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
